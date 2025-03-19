@@ -34,3 +34,9 @@ After running and analyzing the code, I noticed that the default redirection to 
 # Reflection 5
 
 Implementing multithreading in the application significantly improved performance by creating worker threads that distribute incoming requests. This approach allows multiple requests to be handled simultaneously, eliminating the need to wait for the sleep function to complete before processing other requests. The process begins by creating a passing channel for each thread, followed by setting up a thread pool with multiple workers, each responsible for handling a single request at a time. Once a worker receives a request, it locks until the task is completed. Each request is wrapped in a function and placed in a box before being assigned to a worker. In this implementation, four workers are used, and whenever a stream is received from the TCPListener, the ThreadPool executes it along with the handle_connection function.
+
+
+
+# Bonus Reflection
+
+Instead of using the new function, I switched to the build function to handle more complex tasks. While both functions serve the same purpose, build provides access to a more advanced library, enabling the creation of multi threaded programs. This change allows the function to better manage its setup, making it more flexible and configurable for handling intricate operations.
