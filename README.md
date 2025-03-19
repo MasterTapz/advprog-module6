@@ -8,9 +8,18 @@ Since the stream is now buffered, it allows reading the content line by line usi
 ## Reflection 2
 
 
-![image info](image/Reflection2image.png)
+![Commit 2 screen capture](image/Reflection2image.png)
 
 
 This function follows the same approach as handle connection but with a key difference. After reading the request, it generates an HTTP response that includes a status line specifying the version, status code, and message. It also includes the content length, which indicates the size of the data being sent, followed by the actual HTML content that the browser will process.
 
 To achieve this, the function first stores these elements as separate string variables. Using string formatting, it constructs the response and then sends it back to the stream as bytes, allowing the browser to render the content correctly.
+
+
+## Reflection 3
+
+![Commit 3 screen capture](image/Reflection2image.png)
+
+The main purpose of validation is to check the status line. Within this line, there is a section called the URI, which is the second parameter of the status line in a request. This part contains the URL content after the information about the request destination. The URI helps differentiate between different types of requests being sent.
+
+In this case, the function checks if the request matches GET HTTP. If it does, the server responds with the hello html file. Otherwise, it returns a 404 Not Found error. This approach makes the validation process more efficient, as it only verifies whether the request is valid rather than checking every request individually.
