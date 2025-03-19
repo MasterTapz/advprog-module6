@@ -18,8 +18,13 @@ To achieve this, the function first stores these elements as separate string var
 
 ## Reflection 3
 
-![Commit 3 screen capture](image/Reflection2image.png)
+![Commit 3 screen capture](image/Reflection3image.png)
 
 The main purpose of validation is to check the status line. Within this line, there is a section called the URI, which is the second parameter of the status line in a request. This part contains the URL content after the information about the request destination. The URI helps differentiate between different types of requests being sent.
 
 In this case, the function checks if the request matches GET HTTP. If it does, the server responds with the hello html file. Otherwise, it returns a 404 Not Found error. This approach makes the validation process more efficient, as it only verifies whether the request is valid rather than checking every request individually.
+
+
+## Reflection 4
+
+After running and analyzing the code, I noticed that the default redirection to hello html was very slow. This happened because the code included a sleep function, which consumed system resources and placed my original request in a queue until the sleep process was completed. As a result, there was a delay in processing, making the loading slow since the program had to wait for the sleep function to finish before handling other requests.
